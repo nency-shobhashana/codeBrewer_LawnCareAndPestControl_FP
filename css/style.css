@@ -38,3 +38,36 @@
 	margin-top: 30px;
 }
 
+/* Serivces section */
+.services {
+	display: inline-block;
+	width: 100%;
+}
+.services .service-block {
+	display: inline-block;
+	width: 100%;
+	background-color: #e7fdc9;
+}
+.services .service-block .image {
+	float: left;
+	display: inline-block;
+	width: 50%;
+}
+.services .service-block:nth-child(2n) .image {
+	float: right;
+}
+.services .service-block .image img {
+	float: left;
+	width: 100%;
+}
+.services .service-block .detail {
+	display: inline-block;
+	width: 50%;
+	padding: 25px;
+}
+.services .service-block .detail .title {
+	margin-top: 0;
+}
+.services .service-block .detail .desc {
+	margin-bottom: 25px;
+}
