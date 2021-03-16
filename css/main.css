@@ -34,7 +34,7 @@ body {
 	font-size: 20px;
 }
 
-
+a.button,
 button {
 	padding: 12px 15px;
   text-transform: uppercase;
@@ -46,6 +46,7 @@ button {
   text-decoration: none;
   border: none;
 }
+a.button:hover,
 button:hover {
 	background-color: #4f3616;
 }
@@ -109,17 +110,26 @@ header {
 	position: relative;
 	display: inline-block;
 	width: 100%;
+	margin-bottom: 150px;
 }
 .banner .slider img {
 	width: 100%;
 }
 .banner .content {
 	position: absolute;
-	left: 50%;
-	top: 50%;
-	color: #FFF;
-	margin-left: -293px;
-	margin-top: -30px;
+	left: 30%;
+  bottom: -30%;
+  width: 40%;
+  padding: 25px;
+  color: #000;
+  text-align: center;
+  border: 3px solid #63a70a;
+	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e7fdc9+45,63a70a+100 */
+	background: #e7fdc9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e7fdc9 45%, #63a70a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #e7fdc9 45%,#63a70a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #e7fdc9 45%,#63a70a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7fdc9', endColorstr='#63a70a',GradientType=0 ); /* IE6-9 */
 }
 .banner .content h2 {
 	margin: 0;
@@ -127,8 +137,8 @@ header {
 }
 
 
-/* Footer design */
-footer {
+/* .Footer design */
+.footer {
 	float: left;
 	display: inline-block;
 	width: 100%;
@@ -136,30 +146,31 @@ footer {
 	color: #FFF;
 	padding: 25px 0;
 }
-footer .footer-section {
+.footer .footer-section {
 	display: inline-block;
 	float: left;
 	width: calc(33.33% - 20px);
 	margin-right: 30px;
 }
-footer .footer-section:last-child {
+.footer .footer-section:last-child {
 	margin-right: 0;
 }
-footer .footer-section .logo-img {
+.footer .footer-section .logo-img {
 	background-color: #FFF;
-	float: left;
+	/*float: left;*/
+	margin-bottom: 15px;
 }
-footer .footer-section h4 {
+.footer .footer-section h4 {
 	margin-bottom: 0;
 }
-footer .footer-section h3 {
+.footer .footer-section h3 {
 	position: relative;
 	display: inline-block;
-	/*width: 100%;*/
+	width: 100%;
 	margin-top: 0;
 	margin-bottom: 0;
 }
-footer .footer-section h3:before {
+.footer .footer-section h3:before {
 	content: "";
 	position: absolute;
 	width: 60px;
@@ -169,7 +180,13 @@ footer .footer-section h3:before {
 	left: calc(50% - 30px);
 	background: #FFF;
 }
-footer .footer-section ul {
-	margin-top: 30px;
+.footer .footer-section ul {
+	margin-top: 20px;
+	margin-bottom: 0;
+	padding-left: 0;
 	list-style-type: none;
+}
+.footer-copyright {
+	display: inline-block;
+	width: 100%;
 }
