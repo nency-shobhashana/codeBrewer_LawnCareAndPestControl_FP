@@ -10,6 +10,7 @@ body {
 }
 
 
+
 .container {
 	margin: 0 auto;
   max-width: 80%;
@@ -53,8 +54,42 @@ button:hover {
 	background-color: #4f3616;
 }
 
+/* Form design */
+form .form-group {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 20px;
+}
+textarea,
+select,
+input[type=tel],
+input[type=email],
+input[type=text] {
+	display: inline-block;
+	width: 100%;
+	background: #e7fdc9;
+  border: none;
+  padding: 15px;
+  color: #4f3616;
+  font-size: 15px;
+}
+textarea,
+select,
+input[type=tel]::placeholder,
+input[type=email]::placeholder,
+input[type=text]::placeholder {
+	color: #4f3616;
+}
+textarea,
+select,
+input[type=tel]:focus,
+input[type=email]:focus,
+input[type=text]:focus {
+	outline-color: #63a70a;
+}
 
-/* 3 particion of screen */
+
+/* particion of screen */
 .col-3 {
 	display: inline-block;
 	float: left;
@@ -64,7 +99,16 @@ button:hover {
 .col-3:last-child {
 	margin-right: 0;
 }
-
+.col-2-3 {
+	display: inline-block;
+	float: left;
+	width: 30%;
+	margin-right: 30px;	
+}
+.col-2-7 {
+	display: inline-block;
+	width: calc(70% - 30px);
+}
 
 
 header {
