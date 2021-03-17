@@ -60,7 +60,32 @@
 	</div>
 </header>
 
-<main></main>
+<main>
+	<div class="container">
+		<h2 class="text-center text-uppercase color-green font-30">Lawn Care Service</h2>
+		<div class="tab">
+		  <button class="tablinks" onclick="serviceCare(event, 'Fertilization')" id="defaultOpen">Fertilization</button>
+		  <button class="tablinks" onclick="serviceCare(event, 'Aeration')">Aeration & Seeding</button>
+		  <button class="tablinks" onclick="serviceCare(event, 'Trees')">Trees & Shrubs</button>
+		</div>
+
+		<div id="Fertilization" class="tabcontent">
+		  <h3>Fertilization</h3>
+		  <p>Fertilization is the capital city of England.</p>
+		</div>
+
+		<div id="Aeration" class="tabcontent">
+		  <h3>Aeration & Seeding</h3>
+		  <p>Aeration is the capital of France.</p> 
+		</div>
+
+		<div id="Trees" class="tabcontent">
+		  <h3>Trees & Shrubs</h3>
+		  <p>Trees is the capital of Japan.</p>
+		</div>
+
+	</div>
+</main>
 
 <footer>
 	<div class="footer">
@@ -97,6 +122,24 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+document.getElementById("defaultOpen").click();
+function serviceCare(evt, services) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(services).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   
 
 </body>
 </html>
