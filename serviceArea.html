@@ -60,7 +60,50 @@
 	</div>
 </header>
 
-<main></main>
+<main>
+	<div id="map"></div>
+	<h2 class="text-center text-uppercase color-green font-30">Our Services Area</h2>
+	<div class="container">
+		<div class="area-block">
+		 	<h2 class="text-uppercase color-green">Ontario</h2>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Toronto</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Brampton</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Missisagga</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Toronto</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Brampton</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		</div>
+		<div class="area-block">
+		 	<h2 class="text-uppercase color-green">Alberta</h2>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Missisagga</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Toronto</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 	<div class="col-3">
+		 		<h3 class="text-uppercase">Brampton</h3>
+		 		<p>Unit, Main Road, Intersection, XXX XXX</p>
+		 	</div>
+		 </div>
+	</div>
+</main>
 
 <footer>
 	<div class="footer">
@@ -98,5 +141,25 @@
 	</div>
 </footer>
 
+<!-- Refrence site: https://developers.google.com/maps/documentation/javascript/adding-a-google-map#maps_add_map-javascript -->
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly" async></script>
+<script type="text/javascript">
+	// Initialize and add the map
+	function initMap() {
+	  // The location of Canada
+	  const Canada = { lat: 56.1304, lng: -106.3468 };
+	  // The map, centered at Canada
+	  const map = new google.maps.Map(document.getElementById("map"), {
+	    zoom: 4,
+	    center: Canada,
+	  });
+	  // The marker, positioned at Canada
+	  const marker = new google.maps.Marker({
+	    position: Canada,
+	    map: map,
+	  });
+	}
+</script>
 </body>
 </html>
