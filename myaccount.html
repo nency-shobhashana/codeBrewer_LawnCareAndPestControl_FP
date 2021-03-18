@@ -77,6 +77,7 @@
 					<p><strong>Email: </strong><span id="email">john@gmail.com</span></p>
 					<p><strong>Phone Number: </strong><span id="phone">647-676-0708</span></p>
 					<p><strong>Gender: </strong><span id="gender">Male</span></p>
+					<input type="button" value="Logout" onclick="logout()"></button>
 				</div>
 			</div>
 			<div class="appointment col-2-7">
@@ -296,6 +297,11 @@ const displayUser = e => {
 		  window.location.href = "login.html";
 		}
 	  }
+}
+
+const logout = () =>{
+localStorage.setItem('lawCareCurrentUser', '');
+window.location.href = "login.html";
 }
 
 </script>
