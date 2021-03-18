@@ -60,7 +60,74 @@
 	</div>
 </header>
 
-<main></main>
+<main>
+	<div class="container">
+		<h2 class="text-center text-uppercase color-green font-30">Lawn Pest Control Service</h2>
+		<div class="tab">
+		  <button class="tablinks" onclick="serviceCare(event, 'mosquito')" id="defaultOpen">Mosquito and Tick Control</button>
+		  <button class="tablinks" onclick="serviceCare(event, 'insect')">Lawn Insect Control</button>
+		</div>
+
+		<div id="mosquito" class="tabcontent">
+		  <h3 class="title font-25 color-green">Mosquito and Tick Control</h3>
+		  <img src="images/mosquito.jpg">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		  <ul>
+		  	<li><strong>Mosquito Control: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  	<li><strong>Mosquito Prevention:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  	<li><strong>Ongoing Mosquito Maintenance:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  </ul>
+		  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</h4>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+
+		<div id="insect" class="tabcontent">
+		  <h3 class="title font-25 color-green">Lawn Insect Control</h3>
+		  <img src="images/mosquito.jpg">
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		  <ul>
+		  	<li><strong>Mosquito Control: </strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  	<li><strong>Mosquito Prevention:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  	<li><strong>Ongoing Mosquito Maintenance:</strong> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. velit esse
+		  	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		  	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</li>
+		  </ul>
+		  <h4>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmo</h4>
+		  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+				quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+				consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+				proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		</div>
+
+	</div>
+</main>
 
 <footer>
 	<div class="footer">
@@ -97,6 +164,23 @@
 		</div>
 	</div>
 </footer>
+
+<script>
+document.getElementById("defaultOpen").click();
+function serviceCare(evt, services) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(services).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
 
 </body>
 </html>

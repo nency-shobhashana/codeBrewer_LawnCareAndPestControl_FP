@@ -100,3 +100,13 @@
 .area-block:last-child {
 	border-bottom: none;
 }
+
+/* Service page */
+.tabcontent {
+	text-align: justify;
+}
+.tabcontent > img {
+	float: right;
+	margin-left: 25px;
+	margin-bottom: 25px;
+}
