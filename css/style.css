@@ -133,6 +133,18 @@
 }
 
 
+/* My account page */
+.bookedAppt-block {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	border-bottom: 1px solid var(--brown-color);
+}
+.bookedAppt-block:last-child {
+	border-bottom: none;
+}
+
 
 /*
  *Responsive media query
