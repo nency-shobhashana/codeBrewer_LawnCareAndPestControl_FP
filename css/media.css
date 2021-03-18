@@ -25,6 +25,17 @@
 	.services .service-block .detail .title {
 		margin-bottom: 10px;
 	}
+	.services .service-block .detail {
+		padding: 10px 15px;
+	}
+	.services .service-block .detail .title {
+		font-size: 20px;
+		text-align: left;
+    	margin-bottom: 0;
+	}
+	.services .service-block .detail .desc {
+		font-size: 12px;	
+	}
 }
 /* For mobile */
 @media (max-width: 768px) {
