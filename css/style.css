@@ -1,6 +1,4 @@
-/*
- * index.html
- */
+/* home page */
 
 /* testimonal section */
 .testimonial {
@@ -30,6 +28,7 @@
 .testimonial .testimonial-block .title {
 	margin-top: 30px;
 }
+
 
 /* Serivces section */
 .services {

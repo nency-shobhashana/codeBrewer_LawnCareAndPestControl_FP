@@ -69,6 +69,7 @@ form .form-group {
 textarea,
 select,
 input[type=tel],
+input[type=password],
 input[type=email],
 input[type=text] {
 	display: inline-block;
@@ -82,6 +83,7 @@ input[type=text] {
 textarea,
 select,
 input[type=tel]::placeholder,
+input[type=password]::placeholder,
 input[type=email]::placeholder,
 input[type=text]::placeholder {
 	color: var(--brown-color);
@@ -89,6 +91,7 @@ input[type=text]::placeholder {
 textarea,
 select,
 input[type=tel]:focus,
+input[type=password]:focus,
 input[type=email]:focus,
 input[type=text]:focus {
 	outline-color: var(green-color);
@@ -114,6 +117,16 @@ input[type=text]:focus {
 .col-2-7 {
 	display: inline-block;
 	width: calc(70% - 30px);
+}
+
+.col-2 {
+	float: left;
+	display: inline-block;
+	width: calc(50% - 30px);
+	margin-right: 30px; 
+}
+.col-2:nth-child(2n) {
+	margin-right: none
 }
 
 
@@ -218,9 +231,9 @@ header {
 }
 .banner .content {
 	position: absolute;
-	left: 30%;
+	left: 25%;
   bottom: -30%;
-  width: 40%;
+  width: 50%;
   padding: 25px;
   color: #000;
   text-align: center;
@@ -348,4 +361,26 @@ header {
   /* The height is 400 pixels */
   width: 100%;
   /* The width is the width of the web page */
+}
+
+
+/*
+ *Responsive media query
+ */
+@media (max-width: 1200px) {
+	.container {
+		max-width: 90%;
+	}
+}
+@media (max-width: 1024px) {
+	.container {
+		max-width: 100%;
+	}
+}
+@media (max-width: 640px) {
+	.col-3 {
+		width: 100%;
+		margin-right: 0;
+		margin-bottom: 15px;
+	}
 }
