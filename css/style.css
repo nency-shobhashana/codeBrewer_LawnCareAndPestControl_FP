@@ -28,7 +28,21 @@
 .testimonial .testimonial-block .title {
 	margin-top: 30px;
 }
-
+.callout {
+	display: inline-block;
+	width: 100%;
+	font-size: 18px;
+	font-weight: bold;
+	margin-top: 30px;
+	padding: 60px;
+	text-align: center;
+}
+.callout a {
+	color: var(--brown-color);
+}
+.callout a:hover {
+	color: var(--green-color);
+}
 
 /* Serivces section */
 .services {
