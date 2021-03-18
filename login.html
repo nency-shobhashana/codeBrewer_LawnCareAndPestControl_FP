@@ -11,6 +11,9 @@
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/media.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="js/progress.js"></script>
+
 </head>
 <body>
 
@@ -47,7 +50,6 @@
 					<li><a href="aboutUs.html">About Us</a></li>
 					<li><a href="contactUs.html">Contact Us</a></li>
 					<li><a href="myaccount.html">My account</a></li>
-					<li><a href="login.html">Login/Resiter</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -75,7 +77,13 @@
 			</div>
 			<div class="login col-2">
 				<h3 class="title text-uppercase font-25">Register</h3>
-				<form id="regForm" onsubmit="signUp(event);">
+				<form id="regForm" onsubmit="signUp(event);" action="#" class="pro-form" method="post">
+
+					<div class="progress-wrap">
+						<progress max="100" value="0" id="progress"></progress>
+						<div class="progress-message" id="progress-message">Fill the below form.</div><br>
+					</div>
+
 					<div class="form-group">
 						<input type="text" id="fname" name="fname" placeholder="First Name" required>
 					</div>
@@ -176,115 +184,7 @@
 </footer>
 
 <script src="js/script.js"></script>
-<script type="text/javascript">
-let db;
+<script src="js/localDB.js"></script>
 
-function init(){
-console.log("init called");
-window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
-  // DON'T use "var indexedDB = ..." if you're not in a function.
-  // Moreover, you may need references to some window.IDB* objects:
-  window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
-  window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
-  // (Mozilla has never prefixed these objects, so we don't need window.mozIDB*)
-
-  // Let us open our database
-  const DBOpenRequest = window.indexedDB.open("LawnCare", 1);
-
-  DBOpenRequest.onsuccess = function(event) {
-
-	console.log("DBOpenRequest.onsuccess done");
-    // store the result of opening the database in the db variable. This is used a lot below
-    db = DBOpenRequest.result;
-
-  };
-
-  DBOpenRequest.onupgradeneeded = function(event) {
-    console.log("onupgradeneeded start");
-    let db = event.target.result;
-
-    db.onerror = function(event) {
-      note.innerHTML += '<li>Error loading database.</li>';
-    };
-
-    // Create an objectStore for this database
-
-    var objectStore = db.createObjectStore("user", { keyPath: "email" });
-
-    objectStore.createIndex("fname", "fname", { unique: false });
-    objectStore.createIndex("lname", "lname", { unique: false });
-    objectStore.createIndex("pwd", "pwd", { unique: false });
-    objectStore.createIndex("phone", "phone", { unique: false });
-    objectStore.createIndex("birthday", "birthday", { unique: false });
-    objectStore.createIndex("birthmonth", "birthmonth", { unique: false });
-    objectStore.createIndex("birthyear", "birthyear", { unique: false });
-    objectStore.createIndex("gender", "gender", { unique: false });
-    objectStore.createIndex("address", "address", { unique: false });
-
-    objectStore = db.createObjectStore("appointment", { keyPath: "id", autoIncrement: true });
-
-	objectStore.createIndex("email", "email", { unique: false });
-    objectStore.createIndex("service", "service", { unique: false });
-    objectStore.createIndex("date", "date", { unique: false });
-    objectStore.createIndex("comment", "comment", { unique: false });
-
-	console.log("onupgradeneeded done");
-  };
-	console.log("init done");
-}
-
-window.onload = init
-
-const signUp = e => {
-	let gender = document.getElementById('male').checked ? "Male" : document.getElementById('female').checked ? "Female" : "Not Specified"
-	let formData = {
-	fname: document.getElementById('fname').value,
-	lname: document.getElementById('lname').value,
-	email: document.getElementById('registerEmail').value,
-	pwd: document.getElementById('registerPassword').value,
-	phone: document.getElementById('phone').value,
-    birthday: document.getElementById('birthday').value,
-    birthmonth: document.getElementById('birthmonth').value,
-    birthyear: document.getElementById('birthyear').value,
-    gender: gender,
-    address: document.getElementById('address').value + ", " + document.getElementById('city').value + ", " + document.getElementById('province').value,
-     }
-
-	let transaction = db.transaction(["user"], "readwrite");
-	console.log("transaction start");
-	transaction.oncomplete = function() {
-		cleardata();
-		console.log("transaction done");
-	};
-
-    let objectStore = transaction.objectStore("user");
-
-    // Make a request to add our newItem object to the object store
-    objectStore.add(formData);
-    console.log("objectStore add done");
-}
-
-const login = e => {
-	let email = document.getElementById('email').value;
-	let pwd = document.getElementById('password').value;
-
-	let objectStore = db.transaction('user').objectStore("user");
-
-	objectStore.openCursor().onsuccess = function(event) {
-	  let cursor = event.target.result;
-		// if there is still another cursor to go, keep runing this code
-		if(cursor) {
-		  if(cursor.value.email == email && cursor.value.pwd == pwd){
-			localStorage.setItem('lawCareCurrentUser', email);
-			window.location.href = "myaccount.html";
-		  }
-		  cursor.continue();
-		// if there are no more cursor items to iterate through, say so, and exit the function
-		} else {
-		  console.log("user not found");
-		}
-	  }
-}
-</script>
 </body>
 </html>
