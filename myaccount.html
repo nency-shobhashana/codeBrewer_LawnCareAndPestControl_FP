@@ -83,31 +83,27 @@
 				<h3 class="title text-uppercase font-25">Book your Appointment</h3>
 				<form>
 					<div class="form-group">
-						<input type="text" id="fname" name="fname" placeholder="Name of Service" required>
+						<input type="text" id="service" name="service" placeholder="Name of Service" required>
 					</div>
 					<div class="form-group">
 						<label><b>Which date do you want to book appoinment?</b></label>
 						<input type="date" id="appt_date" name="appt_date" value="2021-03-19" required>
 					</div>
 					<div class="form-group">
-			    	<textarea id="subject" name="subject" placeholder="Enter expected service in detail" rows="6"></textarea>
+			    	<textarea id="comment" name="comment" placeholder="Enter expected service in detail" rows="6"></textarea>
 					</div>
 			    <div class="text-center">
-			    	<input type="submit" value="Book Appointment">
+			    	<input type="button" value="Book Appointment" onclick="bookAppointment();">
 			    </div>
 				</form>
 				<h3 class="title text-uppercase font-25">Booked Appointment</h3>
-				<div class="bookedAppt-block">
-					<div><b>Service Name:</b> Pest Control</div>
-					<div><b>Appoinment date:</b> 2021-03-20</div>
-					<div><b>Deatil:</b> Backyard and front yard to control mosaquito</div>
-					<input type="button" value="Cancel Appointment"></button>
-				</div>
-				<div class="bookedAppt-block">
-					<div><b>Service Name:</b> Pest Control</div>
-					<div><b>Appoinment date:</b> 2021-03-20</div>
-					<div><b>Deatil:</b> Backyard and front yard to control mosaquito</div>
-					<input type="button" value="Cancel Appointment"></button>
+				<div id="bookedApptList">
+<!--					<div class="bookedAppt-block">-->
+<!--						<div><b>Service Name:</b> Pest Control</div>-->
+<!--						<div><b>Appoinment date:</b> 2021-03-20</div>-->
+<!--						<div><b>Deatil:</b> Backyard and front yard to control mosaquito</div>-->
+<!--						<input type="button" value="Cancel Appointment"></button>-->
+<!--					</div>-->
 				</div>
 			</div>
 		</div>
@@ -173,21 +169,18 @@ window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndex
     // store the result of opening the database in the db variable. This is used a lot below
     db = DBOpenRequest.result;
 	displayUser()
+	loadAppointment()
+  };
+
+   DBOpenRequest.onerror = function(event) {
+		window.location.href = "login.html";
   };
 
   DBOpenRequest.onupgradeneeded = function(event) {
     console.log("onupgradeneeded start");
     let db = event.target.result;
 
-    db.onerror = function(event) {
-      note.innerHTML += '<li>Error loading database.</li>';
-    };
-
-    // Create an objectStore for this database
-
-    let objectStore = db.createObjectStore("user", { keyPath: "email" });
-
-    // define what data items the objectStore will contain
+    var objectStore = db.createObjectStore("user", { keyPath: "email" });
 
     objectStore.createIndex("fname", "fname", { unique: false });
     objectStore.createIndex("lname", "lname", { unique: false });
@@ -199,13 +192,86 @@ window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndex
     objectStore.createIndex("gender", "gender", { unique: false });
     objectStore.createIndex("address", "address", { unique: false });
 
-	console.log("onupgradeneeded done");
-  };
+    objectStore = db.createObjectStore("appointment", { keyPath: "id", autoIncrement: true });
+
+	objectStore.createIndex("email", "email", { unique: false });
+    objectStore.createIndex("service", "service", { unique: false });
+    objectStore.createIndex("date", "date", { unique: false });
+    objectStore.createIndex("comment", "comment", { unique: false });
+
+    };
 	console.log("init done");
 }
 
 window.onload = init
 
+const bookAppointment = () => {
+	let formData = {
+	email: localStorage.getItem('lawCareCurrentUser'),
+	service: document.getElementById('service').value,
+	date: document.getElementById('appt_date').value,
+    comment: document.getElementById('comment').value,
+     }
+
+	let transaction = db.transaction(["appointment"], "readwrite");
+	transaction.oncomplete = function() {
+		loadAppointment();
+		console.log("transaction done");
+	};
+
+    let objectStore = transaction.objectStore("appointment");
+
+    // Make a request to add our newItem object to the object store
+    objectStore.add(formData);
+    console.log("objectStore add done");
+}
+const loadAppointment = () => {
+	let email = localStorage.getItem('lawCareCurrentUser');
+	let objectStore = db.transaction('appointment').objectStore("appointment");
+	let bookedApptList = document.getElementById('bookedApptList');
+	bookedApptList.innerHTML = ""
+
+	var today = new Date();
+	var dd = String(today.getDate()).padStart(2, '0');
+	var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+	var yyyy = today.getFullYear();
+
+	today = yyyy + '-' + mm + '-' + dd;
+
+	objectStore.openCursor().onsuccess = function(event) {
+	  let cursor = event.target.result;
+		// if there is still another cursor to go, keep runing this code
+
+		if(cursor) {
+		  if(cursor.value.email == email){
+			let bookedApptBlock = document.createElement("div");
+			bookedApptBlock.className = "bookedAppt-block";
+			let canCancel = cursor.value.date > today
+			bookedApptBlock.innerHTML = '<div><b>Service Name:</b> '+cursor.value.service+'</div> '+
+						'<div><b>Appoinment date:</b> '+cursor.value.date+'</div>'+
+						'<div><b>Deatil:</b> '+cursor.value.comment+'</div>';
+
+			if(canCancel){
+				bookedApptBlock.innerHTML = bookedApptBlock.innerHTML + '<input type="button" value="Cancel Appointment" onclick="cancelAppointment('+cursor.value.id+')"></button>'
+			}
+			bookedApptList.appendChild(bookedApptBlock)
+		  }
+		  cursor.continue();
+		// if there are no more cursor items to iterate through, say so, and exit the function
+		} else if(bookedApptList.innerHTML == ""){
+			bookedApptList.innerHTML = "<div><b>No Appointment found.</b></div>"
+		  console.log("no record found");
+		}
+	  }
+}
+
+const cancelAppointment = id => {
+	let transaction = db.transaction(["appointment"], "readwrite");
+    let objectStore = transaction.objectStore("appointment");
+    let request = objectStore.delete(id);
+
+    transaction.oncomplete = () => { loadAppointment(); };
+}
 const displayUser = e => {
 	let email = localStorage.getItem('lawCareCurrentUser');
 	let objectStore = db.transaction('user').objectStore("user");

@@ -209,9 +209,7 @@ window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndex
 
     // Create an objectStore for this database
 
-    let objectStore = db.createObjectStore("user", { keyPath: "email" });
-
-    // define what data items the objectStore will contain
+    var objectStore = db.createObjectStore("user", { keyPath: "email" });
 
     objectStore.createIndex("fname", "fname", { unique: false });
     objectStore.createIndex("lname", "lname", { unique: false });
@@ -222,6 +220,13 @@ window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndex
     objectStore.createIndex("birthyear", "birthyear", { unique: false });
     objectStore.createIndex("gender", "gender", { unique: false });
     objectStore.createIndex("address", "address", { unique: false });
+
+    objectStore = db.createObjectStore("appointment", { keyPath: "id", autoIncrement: true });
+
+	objectStore.createIndex("email", "email", { unique: false });
+    objectStore.createIndex("service", "service", { unique: false });
+    objectStore.createIndex("date", "date", { unique: false });
+    objectStore.createIndex("comment", "comment", { unique: false });
 
 	console.log("onupgradeneeded done");
   };
@@ -258,7 +263,7 @@ const signUp = e => {
     objectStore.add(formData);
     console.log("objectStore add done");
 }
-document.getElementById('email')
+
 const login = e => {
 	let email = document.getElementById('email').value;
 	let pwd = document.getElementById('password').value;
