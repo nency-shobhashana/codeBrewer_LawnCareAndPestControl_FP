@@ -123,3 +123,23 @@
 	margin-left: 25px;
 	margin-bottom: 25px;
 }
+
+
+
+/*
+ *Responsive media query
+ */
+/* For mobile */
+@media (max-width: 768px) {
+
+	.tabcontent > img {
+		float: none;
+		display: block;
+		margin: 0 auto;
+	}
+}
+@media (max-width: 380px) {
+	.tabcontent > img {
+		width: 100%;
+	}
+}
