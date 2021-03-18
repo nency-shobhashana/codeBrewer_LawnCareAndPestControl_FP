@@ -177,26 +177,89 @@
 
 <script src="js/script.js"></script>
 <script type="text/javascript">
+let db;
+
+function init(){
+console.log("init called");
+window.indexedDB = window.indexedDB || window.mozIndexedDB || window.webkitIndexedDB || window.msIndexedDB;
+  // DON'T use "var indexedDB = ..." if you're not in a function.
+  // Moreover, you may need references to some window.IDB* objects:
+  window.IDBTransaction = window.IDBTransaction || window.webkitIDBTransaction || window.msIDBTransaction;
+  window.IDBKeyRange = window.IDBKeyRange || window.webkitIDBKeyRange || window.msIDBKeyRange;
+  // (Mozilla has never prefixed these objects, so we don't need window.mozIDB*)
+
+  // Let us open our database
+  const DBOpenRequest = window.indexedDB.open("LawnCare", 1);
+
+  DBOpenRequest.onsuccess = function(event) {
+
+	console.log("DBOpenRequest.onsuccess done");
+    // store the result of opening the database in the db variable. This is used a lot below
+    db = DBOpenRequest.result;
+
+  };
+
+  DBOpenRequest.onupgradeneeded = function(event) {
+    console.log("onupgradeneeded start");
+    let db = event.target.result;
+
+    db.onerror = function(event) {
+      note.innerHTML += '<li>Error loading database.</li>';
+    };
+
+    // Create an objectStore for this database
+
+    let objectStore = db.createObjectStore("user", { keyPath: "email" });
+
+    // define what data items the objectStore will contain
+
+    objectStore.createIndex("fname", "fname", { unique: false });
+    objectStore.createIndex("lname", "lname", { unique: false });
+    objectStore.createIndex("pwd", "pwd", { unique: false });
+    objectStore.createIndex("phone", "phone", { unique: false });
+    objectStore.createIndex("birthday", "birthday", { unique: false });
+    objectStore.createIndex("birthmonth", "birthmonth", { unique: false });
+    objectStore.createIndex("birthyear", "birthyear", { unique: false });
+    objectStore.createIndex("gender", "gender", { unique: false });
+    objectStore.createIndex("address", "address", { unique: false });
+
+	console.log("onupgradeneeded done");
+  };
+	console.log("init done");
+}
+
+window.onload = init
+
 const signUp = e => {
+	let gender = document.getElementById('male').checked ? "Male" : document.getElementById('female').checked ? "Female" : "Not Specified"
 	let formData = {
 	fname: document.getElementById('fname').value,
 	lname: document.getElementById('lname').value,
-	email: document.getElementById('email').value,
-	pwd: document.getElementById('password').value,
+	email: document.getElementById('registerEmail').value,
+	pwd: document.getElementById('registerPassword').value,
 	phone: document.getElementById('phone').value,
     birthday: document.getElementById('birthday').value,
     birthmonth: document.getElementById('birthmonth').value,
     birthyear: document.getElementById('birthyear').value,
-    male: document.getElementById('male').value,
-    female: document.getElementById('female').value,
-    address: document.getElementById('address').value,
-    city: document.getElementById('city').value,
-    province: document.getElementById('province').value
-	}
-	localStorage.setItem('formData', JSON.stringify(formData));
-	console.log(localStorage.getItem('formData'));
-	e.preventDefault();
+    gender: gender,
+    address: document.getElementById('address').value + ", " + document.getElementById('city').value + ", " + document.getElementById('province').value,
+     }
+
+	let transaction = db.transaction(["user"], "readwrite");
+	console.log("transaction start");
+	transaction.oncomplete = function() {
+		cleardata();
+		console.log("transaction done");
+	};
+
+    let objectStore = transaction.objectStore("user");
+
+    // Make a request to add our newItem object to the object store
+    objectStore.add(formData);
+    console.log("objectStore add done");
 }
+
+
 </script>
 </body>
 </html>
