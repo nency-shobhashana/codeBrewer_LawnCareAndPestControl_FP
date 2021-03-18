@@ -144,22 +144,3 @@
 .bookedAppt-block:last-child {
 	border-bottom: none;
 }
-
-
-/*
- *Responsive media query
- */
-/* For mobile */
-@media (max-width: 768px) {
-
-	.tabcontent > img {
-		float: none;
-		display: block;
-		margin: 0 auto;
-	}
-}
-@media (max-width: 380px) {
-	.tabcontent > img {
-		width: 100%;
-	}
-}
