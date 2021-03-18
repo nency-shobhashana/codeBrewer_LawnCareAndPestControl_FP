@@ -390,6 +390,11 @@ header {
 }
 /* For mobile */
 @media (max-width: 768px) {
+	.header-bar .contact,
+	.header-bar .tagline {
+		width: 100%;
+		text-align: center;
+	}
 	.font-30 {
 		font-size: 25px;
 	}

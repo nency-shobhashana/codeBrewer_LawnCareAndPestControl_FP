@@ -86,20 +86,28 @@
 	margin-bottom: 25px;
 }
 .faq-block .que {
-	display: inline-block;
-	width: 100%;
 	background-color: #e7fdc9;
 	padding: 10px 15px 8px;
 	font-size: 15px;
 	font-weight: bold;
 	border: 1px solid #4f3616;
 }
-.faq-block .ans {
-	display: none;
+.faq-block .que:after {
+  content: '\002B';
+  color: var(--brown-color);
+  font-weight: bold;
+  float: right;
+  margin-left: 5px;
 }
-.faq-block:first-child .ans {
-	display: inline-block;
-	padding: 15px;
+.faq-block .active:after {
+  content: "\2212";
+}
+
+.faq-block .ans {
+	transition: max-height 0.2s ease-out;
+	/*padding: 0 15px;*/
+	max-height: 0;
+	overflow: hidden;
 	border: 1px solid #4f3616;
 }
 
