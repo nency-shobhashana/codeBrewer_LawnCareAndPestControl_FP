@@ -64,22 +64,34 @@
 <main>
 	<div class="container">
 		<h2 class="text-uppercase color-green font-30">Welcome to a member of Lawn care and Lawn pest control</h2>
-		<p>If you are new please register your self first</p>
+		<p>Welcome <b>John</b> !!!</p>
+		<p>Please have a look on book appoiment and also request for appoinment for our service.</p>
 		<div class="user-block">
-			<div class="appointment col-2">
+			<div class="user-profile col-2-3">
+				<h3 class="title text-uppercase font-25">User Profile</h3>
+				<div class="profile">
+					<p><strong>First Name: </strong>John</p>
+					<p><strong>Last Name: </strong>Smith</p>
+					<p><strong>Email: </strong>john@gmail.com</p>
+					<p><strong>Phone Number: </strong>647-676-0708</p>
+					<p><strong>Gender: </strong>Male</p>
+				</div>
+			</div>
+			<div class="appointment col-2-7">
 				<h3 class="title text-uppercase font-25">Book your Appointment</h3>
 				<form>
 					<div class="form-group">
-						<input type="email" id="email" name="email" placeholder="Email Address" required>
+						<input type="text" id="fname" name="fname" placeholder="Name of Service" required>
 					</div>
 					<div class="form-group">
-						<input type="password" id="password" name="password" placeholder="Password" required>
+						<label><b>Which date do you want to book appoinment?</b></label>
+						<input type="date" id="appt_date" name="appt_date" value="2021-03-19" required>
 					</div>
 					<div class="form-group">
-			    		<textarea id="subject" name="subject" placeholder="Enter Message" rows="6"></textarea>
+			    	<textarea id="subject" name="subject" placeholder="Enter expected service in detail" rows="6"></textarea>
 					</div>
-					<div class="text-center">
-			    	<input type="submit" value="Login">
+			    <div class="text-center">
+			    	<input type="submit" value="Book Appointment">
 			    </div>
 				</form>
 			</div>
