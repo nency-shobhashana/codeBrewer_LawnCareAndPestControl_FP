@@ -160,24 +160,6 @@
 	</div>
 </footer>
 
-<script>
-	var coll = document.getElementsByClassName("que");
-	var i;
-
-	for (i = 0; i < coll.length; i++) {
-	  coll[i].addEventListener("click", function() {
-	    this.classList.toggle("active");
-	    var content = this.nextElementSibling;
-	    if (content.style.maxHeight){
-	      content.style.padding = "0px";
-	      content.style.maxHeight = null;
-	    } else {
-	      content.style.padding = "15px";
-	      content.style.maxHeight = content.scrollHeight + "px";
-	    } 
-	  });
-	}
-</script>
-
+<script src="js/script.js"></script>
 </body>
 </html>

@@ -146,22 +146,7 @@
 <!-- Refrence site: https://developers.google.com/maps/documentation/javascript/adding-a-google-map#maps_add_map-javascript -->
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBIwzALxUPNbatRBj3Xi1Uhp0fFzwWNBkE&callback=initMap&libraries=&v=weekly" async></script>
-<script type="text/javascript">
-	// Initialize and add the map
-	function initMap() {
-	  // The location of Canada
-	  const Canada = { lat: 56.1304, lng: -106.3468 };
-	  // The map, centered at Canada
-	  const map = new google.maps.Map(document.getElementById("map"), {
-	    zoom: 4,
-	    center: Canada,
-	  });
-	  // The marker, positioned at Canada
-	  const marker = new google.maps.Marker({
-	    position: Canada,
-	    map: map,
-	  });
-	}
-</script>
+
+<script src="js/script.js"></script>
 </body>
 </html>
