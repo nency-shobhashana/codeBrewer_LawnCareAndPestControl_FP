@@ -9,7 +9,12 @@ body {
 	line-height: 1.5;
 }
 
-
+:root {
+  --green-color: #63a70a;  
+  --brown-color: #4f3616;
+  --light-green-color: #e7fdc9;  
+  --white-color: #FFF;  
+}
 
 .container {
 	margin: 0 auto;
@@ -23,7 +28,7 @@ body {
 	text-transform: uppercase;
 }
 .color-green {
-	color: #63a70a;
+	color: var(--green-color);
 }
 .font-30 {
 	font-size: 30px;
@@ -42,7 +47,7 @@ button {
 	padding: 12px 15px;
   text-transform: uppercase;
   color: #FFF;
-  background: #63a70a;
+  background: var(--green-color);
   font-weight: bold;
   letter-spacing: 3px;
   box-shadow: none;
@@ -52,7 +57,7 @@ button {
 input[type=submit]:hover,
 a.button:hover,
 button:hover {
-	background-color: #4f3616;
+	background-color: var(--brown-color);
 }
 
 /* Form design */
@@ -71,7 +76,7 @@ input[type=text] {
 	background: #e7fdc9;
   border: none;
   padding: 15px;
-  color: #4f3616;
+  color: var(--brown-color);
   font-size: 15px;
 }
 textarea,
@@ -79,14 +84,14 @@ select,
 input[type=tel]::placeholder,
 input[type=email]::placeholder,
 input[type=text]::placeholder {
-	color: #4f3616;
+	color: var(--brown-color);
 }
 textarea,
 select,
 input[type=tel]:focus,
 input[type=email]:focus,
 input[type=text]:focus {
-	outline-color: #63a70a;
+	outline-color: var(green-color);
 }
 
 
@@ -115,14 +120,14 @@ input[type=text]:focus {
 header {
 	display: inline-block;
 	width: 100%;
-	border-bottom: 2px solid #63a70a;
+	border-bottom: 2px solid var(--green-color);
 }
 .header-bar {
 	display: inline-block;
 	width: 100%;
 	padding: 15px 0;
 	/*color: #4f3616;*/
-	background-color: #63a70a;
+	background-color: var(--green-color);
 	color: #FFF;
 }
 .header-bar .tagline {
@@ -150,19 +155,54 @@ header {
 .header-content nav {
 	display: inline-block;
 	width: calc(100% - 60px);
-	/*text-align: right;*/
+	color: var(--green-color);
+	margin: 18px 0 4px;
+}
+.header-content nav > ul {
+	float: right;
+	display: inline-block;
+	margin: 0;
+	padding: 0;
 }
 .header-content nav > ul > li {
 	/*list-style-type: none;*/
+	position: relative;
 	display: inline-block;
 	float: left;
-	padding-right: 10px;
+	margin: 0 20px;
+	padding: 5px 0;
 }
-.header-content nav > ul > li ul {
+.header-content nav > ul > li a {
+	color: var(--green-color);
+	text-decoration: none;
+}
+.header-content nav > ul > li > ul {
 	display: none;
+	position: absolute;
+	width: max-content;
+  left: 0;
+  top: 25px;
+  z-index: 9;
+  padding: 0;
+	list-style-type: none;
+	background: var(--light-green-color);
+}
+.header-content nav > ul > li > ul > li {
+	padding: 15px;
+	border-bottom: 2px solid var(--brown-color);
+}
+.header-content nav > ul > li:hover a,
+.header-content nav > ul > li:hover {
+	color: var(--brown-color);
+}
+.header-content nav > ul > li:hover > a {
+	border-bottom: 2px solid var(--brown-color);
 }
 .header-content nav > ul > li:hover ul {
-	/*display: inline-block;*/
+	display: inline-block;
+}
+.header-content nav > ul > li:hover > ul > li > ul {
+	display: none;
 }
 
 
@@ -184,7 +224,7 @@ header {
   padding: 25px;
   color: #000;
   text-align: center;
-  border: 3px solid #63a70a;
+  border: 3px solid var(--green-color);
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e7fdc9+45,63a70a+100 */
 	background: #e7fdc9; /* Old browsers */
 	background: -moz-linear-gradient(top,  #e7fdc9 45%, #63a70a 100%); /* FF3.6-15 */
@@ -214,12 +254,12 @@ header {
 
 /* Change background color of buttons on hover */
 .tab button:hover {
-  background-color: #4f3616;
+  background-color: var(--brown-color);
 }
 
 /* Create an active/current tablink class */
 .tab button.active {
-  background-color: #4f3616;
+  background-color: var(--brown-color);
 }
 
 /* Style the tab content */
@@ -248,7 +288,7 @@ header {
 	float: left;
 	display: inline-block;
 	width: 100%;
-	background-color: #63a70a;
+	background-color: var(--green-color);
 	color: #FFF;
 	padding: 25px 0;
 	margin-top: 55px;
