@@ -53,7 +53,8 @@
 					<li><a href="faq.html">FAQ</a></li>
 					<li><a href="aboutUs.html">About Us</a></li>
 					<li><a href="contactUs.html">Contact Us</a></li>
-					<!-- <li><a href="">Login/Resiter</a></li> -->
+					<li><a href="myaccount.html">My account</a></li>
+					<li><a href="login.html">Login/Resiter</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -104,8 +105,7 @@
 				<div class="form-group">
 		    	<textarea id="subject" name="subject" placeholder="Enter Message" rows="6"></textarea>
 				</div>
-		    <input type="submit" value="Submit">
-		    <div class="message">We added your data in our databse and We will contact you in 48 hours to addrress your problem.</div>
+		    <input type="submit" value="Submit" onclick="tyAlert()">
 		  </form>
 		</div>
 	</div>
@@ -148,5 +148,10 @@
 	</div>
 </footer>
 
+<script type="text/javascript">
+	function tyAlert() {
+	  alert("Thank you for your intrest. we will contact you very soon.")
+	}
+</script>
 </body>
 </html>
