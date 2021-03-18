@@ -61,7 +61,7 @@
 		<div class="user-block">
 			<div class="login col-2">
 				<h3 class="title text-uppercase font-25">Login</h3>
-				<form>
+				<form onsubmit="login(event);">
 					<div class="form-group">
 						<input type="email" id="email" name="email" placeholder="Email Address" required>
 					</div>
@@ -258,8 +258,28 @@ const signUp = e => {
     objectStore.add(formData);
     console.log("objectStore add done");
 }
+document.getElementById('email')
+const login = e => {
+	let email = document.getElementById('email').value;
+	let pwd = document.getElementById('password').value;
 
+	let objectStore = db.transaction('user').objectStore("user");
 
+	objectStore.openCursor().onsuccess = function(event) {
+	  let cursor = event.target.result;
+		// if there is still another cursor to go, keep runing this code
+		if(cursor) {
+		  if(cursor.value.email == email && cursor.value.pwd == pwd){
+			localStorage.setItem('lawCareCurrentUser', email);
+			window.location.href = "myaccount.html";
+		  }
+		  cursor.continue();
+		// if there are no more cursor items to iterate through, say so, and exit the function
+		} else {
+		  console.log("user not found");
+		}
+	  }
+}
 </script>
 </body>
 </html>
