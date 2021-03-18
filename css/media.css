@@ -85,6 +85,21 @@
 	.testimonial .testimonial-block:last-child {
 		margin-bottom: 0;
 	}
+
+	.services {
+		padding: 15px;
+	}
+	.services .service-block {
+		margin-bottom: 15px;
+	}
+	.services .service-block .detail,
+	.services .service-block .image {
+		width: 100%;
+		padding: 0;
+	}
+	.services .service-block:last-child {
+		margin-bottom: 0;
+	}
 }
 @media (max-width: 380px) {
 	.tabcontent > img {

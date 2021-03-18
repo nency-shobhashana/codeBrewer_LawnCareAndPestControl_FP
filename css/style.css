@@ -48,11 +48,11 @@
 .services {
 	display: inline-block;
 	width: 100%;
+	background-color: #e7fdc9;
 }
 .services .service-block {
 	display: inline-block;
 	width: 100%;
-	background-color: #e7fdc9;
 }
 .services .service-block .image {
 	float: left;
