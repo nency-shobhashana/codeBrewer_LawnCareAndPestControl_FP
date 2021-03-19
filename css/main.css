@@ -88,6 +88,7 @@ input[type=text] {
   color: var(--brown-color);
   font-size: 15px;
   -webkit-appearance:none;
+  -moz-appearance:none;
   appearance:none;
 }
 textarea,
@@ -469,7 +470,6 @@ progress[value] {
   -webkit-appearance: none;
    appearance: none;
 }
-progress::-webkit-progress-bar,
 progress::-moz-progress-bar {
 	background: #e7fdc9; /* Old browsers */
 	background: -moz-linear-gradient(top,  #e7fdc9 45%, #63a70a 100%); /* FF3.6-15 */
