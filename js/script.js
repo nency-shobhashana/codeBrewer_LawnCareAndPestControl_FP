@@ -3,7 +3,8 @@ function tyAlert() {
 	alert("Thank you for your intrest. we will contact you very soon.")
 }
 
-// header 
+// responsive menu 
+
 function toggleClass(){
   // get the properties of an element
   var element = document.getElementById("responsive-menu");
@@ -50,8 +51,9 @@ for (i = 0; i < coll.length; i++) {
 }
 
 // Tabs for Service page
-
-document.getElementById("defaultOpen").click();
+if(document.getElementById("defaultOpen") != null && document.getElementById("defaultOpen") != undefined){
+  document.getElementById("defaultOpen").click();
+}
 function serviceCare(evt, services) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
