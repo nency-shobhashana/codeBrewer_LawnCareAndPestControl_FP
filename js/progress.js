@@ -1,5 +1,9 @@
 $(function(){
-$("#regForm input").keyup(function() {
+$("#regForm input").keyup(calculateProgress);
+$("#regForm input").click(calculateProgress);
+});
+
+const calculateProgress = function() {
 
 var numValid = 0;
 $("#regForm input[required]").each(function() {
@@ -37,9 +41,11 @@ if (numValid == 7) {
     progress.attr("value", "87.50");
 }
 if (numValid == 8) {
+    progress.attr("value", "95");
+}
+if (numValid == 9) {
     progress.attr("value", "100");
     progressMessage.text("All required field are completed");
 }
   
-});
-});
+}

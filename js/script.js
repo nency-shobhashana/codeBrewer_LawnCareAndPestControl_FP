@@ -1,8 +1,3 @@
-// Thank you message alert
-function tyAlert() {
-	alert("Thank you for your intrest. we will contact you very soon.")
-}
-
 // responsive menu 
 
 function toggleClass(){
@@ -72,6 +67,7 @@ function serviceCare(evt, services) {
 
 function cleardata() {
   document.getElementById("regForm").reset();
+  calculateProgress();
 }
 
 
