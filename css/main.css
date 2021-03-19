@@ -194,6 +194,9 @@ header {
 	margin: 0 20px;
 	padding: 5px 0;
 }
+.header-content nav > ul > li:last-child {
+	margin-right: 0;
+}
 .header-content nav > ul > li a {
 	color: var(--green-color);
 	text-decoration: none;
@@ -213,18 +216,53 @@ header {
 	padding: 15px;
 	border-bottom: 2px solid var(--brown-color);
 }
-.header-content nav > ul > li:hover a,
-.header-content nav > ul > li:hover {
-	color: var(--brown-color);
-}
-.header-content nav > ul > li:hover > a {
-	border-bottom: 2px solid var(--brown-color);
-}
-.header-content nav > ul > li:hover ul {
-	display: inline-block;
-}
-.header-content nav > ul > li:hover > ul > li > ul {
+
+.mobile-nav {
 	display: none;
+	float: right;
+	margin-top: 25px;
+}
+.navbar-toggler-icon {
+	display: inline-block;
+	position: relative;
+	height: 4px;
+	width: 40px;
+	background: var(--brown-color);
+	vertical-align: middle;
+}
+.navbar-toggler-icon:after,
+.navbar-toggler-icon:before {
+	display: inline-block;
+  position: absolute;
+  height: 4px;
+  width: 40px;
+  background: var(--brown-color);
+  -webkit-transition: all .7s;
+  transition: all .7s;
+  content: "";
+}
+.navbar-toggler-icon:before {
+  top: -13px;
+  left: 0;
+}
+.navbar-toggler-icon:after {
+  bottom: -13px;
+  left: 0;
+}
+.header-content.active .navbar-toggler-icon {
+	background: transparent;
+}
+.header-content.active .navbar-toggler-icon:before {
+	top: 0;
+  left: 3px;
+	-webkit-transform: rotate(-45deg);
+	transform: rotate(-45deg);
+}
+.header-content.active .navbar-toggler-icon:after {
+	bottom: 0;
+  left: 3px;
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
 }
 
 
