@@ -64,12 +64,12 @@
 
 <main>
 	<div class="container">
-		<h2 class="text-uppercase color-green font-30">Welcome to a member of Lawn care and Lawn pest control</h2>
+		<h2 class="text-uppercase color-green font-25">Welcome to a member of Lawn care and Lawn pest control</h2>
 		<p>Welcome <b><span id="welcomfname">John</span></b> !!!</p>
 		<p>Please have a look on book appoiment and also request for appoinment for our service.</p>
 		<div class="user-block">
 			<div class="user-profile col-2-3">
-				<h3 class="title text-uppercase font-25">User Profile</h3>
+				<h3 class="title text-uppercase font-20">User Profile</h3>
 				<div class="profile">
 					<p><strong>First Name: </strong><span id="fname">John</span></p>
 					<p><strong>Last Name: </strong><span id="lname">Smith</span></p>
@@ -80,7 +80,7 @@
 				</div>
 			</div>
 			<div class="appointment col-2-7">
-				<h3 class="title text-uppercase font-25">Book your Appointment</h3>
+				<h3 class="title text-uppercase font-20">Book your Appointment</h3>
 				<form>
 					<div class="form-group">
 						<input type="text" id="service" name="service" placeholder="Name of Service" required>
@@ -96,7 +96,7 @@
 			    	<input type="button" value="Book Appointment" onclick="bookAppointment();">
 			    </div>
 				</form>
-				<h3 class="title text-uppercase font-25">Booked Appointment</h3>
+				<h3 class="title text-uppercase font-20">Booked Appointment</h3>
 				<div id="bookedApptList">
 <!--					<div class="bookedAppt-block">-->
 <!--						<div><b>Service Name:</b> Pest Control</div>-->
@@ -115,7 +115,7 @@
 		<div class="container">
 			<div class="footer-section col-3 text-center">
 				<img src="images/logo.svg" width="70" class="logo-img">
-				<h3 class="text-uppercase font-25">Services</h3>
+				<h3 class="text-uppercase font-20">Services</h3>
 				<ul>
 					<li><a href="lawncare.html">Lawn care</a></li>
 					<li><a href="pestcontrol.html">Lawn pest control</a></li>
@@ -123,20 +123,20 @@
 			</div>
 
 			<div class="footer-section col-3 text-center">
-				<h3 class="title text-uppercase font-25">Our store</h3>
-				<h4 class="font-20">Address:</h4>
+				<h3 class="title text-uppercase font-20">Our store</h3>
+				<h4 class="font-15">Address:</h4>
 				<div class="address">Ontario, Canada</div>
-				<h4 class="font-20">Opening time:</h4>
+				<h4 class="font-15">Opening time:</h4>
 				<div class="time">Monday to Saturday (10:00 AM to 6:00 PM)</div>
 			</div>
 			
 			<div class="footer-section col-3 text-center">
-				<h3 class="title text-uppercase font-25">Contact Us</h3>
-				<h4 class="font-20">E-mail:</h4>
+				<h3 class="title text-uppercase font-20">Contact Us</h3>
+				<h4 class="font-15">E-mail:</h4>
 				<div class="email">
 					<a href="mailto:emailtonency@gmail.com" target="_blank">lawncare@pestcontrol.com</a>
 				</div>
-				<h4 class="font-20">Contact Number:</h4>
+				<h4 class="font-15">Contact Number:</h4>
 				<div class="contact">+1 (647) 758-6542</div>
 			</div>
 		</div>
@@ -150,5 +150,10 @@
 
 <script src="js/script.js"></script>
 <script src="js/localDB.js"></script>
+<script type="text/javascript">
+	/*! modernizr 3.6.0 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-setclasses !*/
+!function(n,e,s){function o(n,e){return typeof n===e}function a(){var n,e,s,a,i,l,r;for(var c in f)if(f.hasOwnProperty(c)){if(n=[],e=f[c],e.name&&(n.push(e.name.toLowerCase()),e.options&&e.options.aliases&&e.options.aliases.length))for(s=0;s<e.options.aliases.length;s++)n.push(e.options.aliases[s].toLowerCase());for(a=o(e.fn,"function")?e.fn():e.fn,i=0;i<n.length;i++)l=n[i],r=l.split("."),1===r.length?Modernizr[r[0]]=a:(!Modernizr[r[0]]||Modernizr[r[0]]instanceof Boolean||(Modernizr[r[0]]=new Boolean(Modernizr[r[0]])),Modernizr[r[0]][r[1]]=a),t.push((a?"":"no-")+r.join("-"))}}function i(n){var e=r.className,s=Modernizr._config.classPrefix||"";if(c&&(e=e.baseVal),Modernizr._config.enableJSClass){var o=new RegExp("(^|\\s)"+s+"no-js(\\s|$)");e=e.replace(o,"$1"+s+"js$2")}Modernizr._config.enableClasses&&(e+=" "+s+n.join(" "+s),c?r.className.baseVal=e:r.className=e)}var t=[],f=[],l={_version:"3.6.0",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(n,e){var s=this;setTimeout(function(){e(s[n])},0)},addTest:function(n,e,s){f.push({name:n,fn:e,options:s})},addAsyncTest:function(n){f.push({name:null,fn:n})}},Modernizr=function(){};Modernizr.prototype=l,Modernizr=new Modernizr;var r=e.documentElement,c="svg"===r.nodeName.toLowerCase();a(),i(t),delete l.addTest,delete l.addAsyncTest;for(var u=0;u<Modernizr._q.length;u++)Modernizr._q[u]();n.Modernizr=Modernizr}(window,document);
+</script>
 </body>
 </html>

@@ -12,8 +12,10 @@ function toggleClass(){
    var classes = element.className.split(" ");
    var i = classes.indexOf("active");
   }
- }
- function submenu(){
+}
+
+// responsive sub menu
+function submenu(){
   // get the properties of an element
   var element = document.getElementById("sub-menu");
   

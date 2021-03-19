@@ -17,8 +17,8 @@ body {
 }
 
 .container {
-	margin: 0 auto;
-  max-width: 80%;
+  margin: 0 auto;
+  max-width: 100%;
   padding: 0 15px;
 }
 .text-center {
@@ -30,14 +30,14 @@ body {
 .color-green {
 	color: var(--green-color);
 }
-.font-30 {
-	font-size: 30px;
-}
 .font-25 {
 	font-size: 25px;
 }
 .font-20 {
 	font-size: 20px;
+}
+.font-15 {
+	font-size: 15px;
 }
 
 input[type=submit],
@@ -45,7 +45,7 @@ input[type=button],
 a.button,
 button {
 	display: inline-block;
-	padding: 12px 15px;
+	padding: 8px 10px;
   text-transform: uppercase;
   color: #FFF;
   background: var(--green-color);
@@ -68,6 +68,9 @@ form .form-group {
 	display: inline-block;
 	width: 100%;
 	margin-bottom: 20px;
+}
+.form-group .col-3:last-child {
+	margin-bottom: 0;
 }
 textarea,
 select,
@@ -113,31 +116,24 @@ input[type=text]:focus {
 .col-3 {
 	display: inline-block;
 	float: left;
-	width: calc(33.33% - 20px);
-	margin-right: 30px;
+	width: 100%;
+	margin-bottom: 15px;
 }
-.col-3:nth-child(3n) {
-	margin-right: 0;
-}
+
 .col-2-3 {
 	display: inline-block;
 	float: left;
-	width: 30%;
-	margin-right: 30px;	
+	width: 100%;	
 }
 .col-2-7 {
 	display: inline-block;
-	width: calc(70% - 30px);
+	width: 100%;
 }
 
 .col-2 {
 	float: left;
 	display: inline-block;
-	width: calc(50% - 30px);
-	margin-right: 30px; 
-}
-.col-2:nth-child(2n) {
-	margin-right: none
+	width: 100%;
 }
 
 
@@ -154,15 +150,12 @@ header {
 	background-color: var(--green-color);
 	color: #FFF;
 }
-.header-bar .tagline {
+.header-bar .tagline,
+.header-bar .contact {
 	float: left;
 	display: inline-block;
-	width: 70%;
-}
-.header-bar .contact {
-	display: inline-block;
-	width: 30%;
-	text-align: right;
+	width: 100%;
+	text-align: center;
 }
 
 .header-content {
@@ -177,7 +170,7 @@ header {
 	height: auto;
 }
 .header-content nav {
-	display: inline-block;
+	display: none;
 	width: calc(100% - 60px);
 	color: var(--green-color);
 	margin: 18px 0 4px;
@@ -220,11 +213,30 @@ header {
 }
 
 .mobile-nav {
-	display: none;
+	display: inline-block;
 	float: right;
 	margin-top: 25px;
 	cursor: pointer;
 }
+
+
+.header-content nav > ul > li.sub-menu ul {
+	display: inline-block;
+	position: relative;
+    width: calc(100% + 30px);
+    top: 7px;
+    left: -15px;
+    border-top: 1px solid var(--brown-color);
+}
+.header-content nav > ul > li.sub-menu > ul > li {
+	padding: 8px 15px;
+	border-bottom: 2px dashed var(--brown-color);
+}
+.header-content nav > ul > li.sub-menu > ul > li:last-child {
+	border-bottom: none;
+}
+
+/* Responsive menu design */
 .navbar-toggler-icon {
 	display: inline-block;
 	position: relative;
@@ -252,6 +264,31 @@ header {
   bottom: -13px;
   left: 0;
 }
+.header-content.active .mobile-nav {
+	margin-top: 0;
+}
+.header-content.active {
+	position: relative;
+}
+.header-content.active nav {
+	display: inline-block;
+}
+.header-content.active nav > ul {
+	position: absolute;
+    width: 100%;
+    top: 96px;
+    left: 0;
+    z-index: 9;
+    border-top: 3px solid var(--green-color);
+}
+.header-content.active nav > ul > li {
+	width: 100%;
+    background-color: var(--light-green-color);
+    margin-left: 0;
+    border-bottom: 1px solid var(--green-color);
+    padding: 8px 15px;
+}
+
 .header-content.active .navbar-toggler-icon {
 	background: transparent;
 }
@@ -284,9 +321,9 @@ header {
 }
 .banner .content {
 	position: absolute;
-	left: 25%;
+	left: 15px;
   bottom: -25%;
-  width: 50%;
+  width: calc(100% - 30px);
   padding: 15px;
   color: #000;
   text-align: center;
@@ -312,9 +349,10 @@ header {
 /* Style the buttons inside the tab */
 .tab button {
   cursor: pointer;
-  padding: 14px 16px;
   transition: 0.3s;
-  font-size: 17px;
+  padding: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 /* Change background color of buttons on hover */
@@ -330,7 +368,7 @@ header {
 /* Style the tab content */
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 0;
   -webkit-animation: fadeEffect 1s;
   animation: fadeEffect 1s;
 }
@@ -430,6 +468,14 @@ progress[value] {
   /* Reset the default appearance */
   -webkit-appearance: none;
    appearance: none;
+}
+progress::-webkit-progress-bar,
+progress::-moz-progress-bar {
+	background: #e7fdc9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #e7fdc9 45%, #63a70a 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top,  #e7fdc9 45%,#63a70a 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom,  #e7fdc9 45%,#63a70a 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e7fdc9', endColorstr='#63a70a',GradientType=0 ); /* IE6-9 */
 }
 progress[value]::-webkit-progress-value {
 	/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#e7fdc9+45,63a70a+100 */
