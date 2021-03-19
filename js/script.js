@@ -3,6 +3,33 @@ function tyAlert() {
 	alert("Thank you for your intrest. we will contact you very soon.")
 }
 
+// header 
+function toggleClass(){
+  // get the properties of an element
+  var element = document.getElementById("responsive-menu");
+  
+//  check if the element have class list
+  if (element.classList) {
+    // add active class if true
+   element.classList.toggle("active");
+  } else {
+   var classes = element.className.split(" ");
+   var i = classes.indexOf("active");
+  }
+ }
+ function submenu(){
+  // get the properties of an element
+  var element = document.getElementById("sub-menu");
+  
+//  check if the element have class list
+  if (element.classList) {
+    // add active class if true
+   element.classList.toggle("sub-menu");
+  } else {
+   var classes = element.className.split(" ");
+   var i = classes.indexOf("sub-menu");
+  }
+ }
 
 // Collapse in FAq page
 var coll = document.getElementsByClassName("que");

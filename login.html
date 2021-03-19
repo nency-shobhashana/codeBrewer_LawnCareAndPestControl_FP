@@ -17,7 +17,6 @@
 </head>
 <body>
 
-
 <header>
 	<div class="header-bar">
 		<div class="container">
@@ -25,7 +24,7 @@
 			<div class="contact">+1 (647) 758-6542</div>
 		</div>
 	</div>
-	<div class="header-content">
+	<div class="header-content" id="responsive-menu">
 		<div class="container">
 			<div class="logo">
 				<a href="index.html">
@@ -34,14 +33,23 @@
 			</div>
 			<nav>
 				<ul>
-					<li>
+					<li id="sub-menu" onclick="submenu()">
 						Services
 						<ul>
 							<li>
 								<a href="lawnCare.html">Lawn Care</a>
+								<!-- <ul>
+									<li>Fertilization</li>
+									<li>Aeration & Seeding</li>
+									<li>Trees & Shrubs</li>
+								</ul> -->
 							</li>
 							<li>
 								<a href="pestControl.html">Lawn Pest Control</a>
+								<!-- <ul>
+									<li>Mosquito and Tick Control</li>
+									<li>Lawn Insect Control</li>
+								</ul> -->
 							</li>
 						</ul>
 					</li>
@@ -52,6 +60,7 @@
 					<li><a href="myaccount.html">My account</a></li>
 				</ul>
 			</nav>
+			<div class="mobile-nav"><span class="navbar-toggler-icon" onclick="toggleClass()"></span></div>
 		</div>
 	</div>
 </header>

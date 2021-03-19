@@ -58,7 +58,7 @@
 					<li><a href="myaccount.html">My account</a></li>
 				</ul>
 			</nav>
-			<div class="mobile-nav"><span class="navbar-toggler-icon" onclick="toggleClass()"></span></div>
+			<div class="mobile-nav" onclick="toggleClass()"><span class="navbar-toggler-icon" ></span></div>
 		</div>
 	</div>
 </header>
@@ -194,33 +194,6 @@
 </footer>
 
 <script src="js/script.js"></script>
-<script type="text/javascript">
-	function toggleClass(){
-  // get the properties of an element
-  var element = document.getElementById("responsive-menu");
-  
-//  check if the element have class list
-  if (element.classList) {
-    // add active class if true
-   element.classList.toggle("active");
-  } else {
-   var classes = element.className.split(" ");
-   var i = classes.indexOf("active");
-  }
- }
- function submenu(){
-  // get the properties of an element
-  var element = document.getElementById("sub-menu");
-  
-//  check if the element have class list
-  if (element.classList) {
-    // add active class if true
-   element.classList.toggle("sub-menu");
-  } else {
-   var classes = element.className.split(" ");
-   var i = classes.indexOf("sub-menu");
-  }
- }
-</script>
+
 </body>
 </html>

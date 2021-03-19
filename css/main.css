@@ -84,6 +84,8 @@ input[type=text] {
   padding: 15px;
   color: var(--brown-color);
   font-size: 15px;
+  -webkit-appearance:none;
+  appearance:none;
 }
 textarea,
 select,
@@ -221,6 +223,7 @@ header {
 	display: none;
 	float: right;
 	margin-top: 25px;
+	cursor: pointer;
 }
 .navbar-toggler-icon {
 	display: inline-block;
