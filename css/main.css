@@ -64,6 +64,7 @@ button:hover {
 
 /* Form design */
 form .form-group {
+	float: left;
 	display: inline-block;
 	width: 100%;
 	margin-bottom: 20px;

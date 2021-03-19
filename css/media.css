@@ -38,7 +38,7 @@
 	}
 }
 /* For mobile */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.header-bar .contact,
 	.header-bar .tagline {
 		width: 100%;
@@ -61,6 +61,9 @@
 		width: 100%;
 		margin-right: 0;
 		margin-bottom: 15px;
+	}
+	.form-group .col-3:last-child {
+		margin-bottom: 0;
 	}
 	.tab button {
 		padding: 10px;
@@ -99,6 +102,10 @@
 	}
 	.services .service-block:last-child {
 		margin-bottom: 0;
+	}
+	.callout {
+		font-size: 14px;
+		padding: 15px 0;
 	}
 }
 @media (max-width: 380px) {
