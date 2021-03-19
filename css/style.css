@@ -10,7 +10,7 @@
 	position: relative;
 	padding: 15px;
 	text-align: center;
-	border: 1px solid #4f3616;
+	border: 1px solid var(--brown-color);
 }
 .testimonial .testimonial-block .img-icon {
 	position: absolute;
@@ -21,8 +21,8 @@
 	padding: 10px;
 	margin-left: -35px;
 	margin-top: -35px;
-	border: 1px solid #4f3616;
-	background-color: #FFF;
+	border: 1px solid var(--brown-color);
+	background-color: var(--white-color);
 	border-radius: 100%;
 }
 .testimonial .testimonial-block .title {
@@ -48,7 +48,7 @@
 .services {
 	display: inline-block;
 	width: 100%;
-	background-color: #e7fdc9;
+	background-color: var(--light-green-color);
 }
 .services .service-block {
 	display: inline-block;
@@ -86,11 +86,11 @@
 	margin-bottom: 25px;
 }
 .faq-block .que {
-	background-color: #e7fdc9;
+	background-color: var(--light-green-color);
 	padding: 10px 15px 8px;
 	font-size: 15px;
 	font-weight: bold;
-	border: 1px solid #4f3616;
+	border: 1px solid var(--brown-color);
 }
 .faq-block .que:after {
   content: '\002B';
@@ -108,7 +108,7 @@
 	/*padding: 0 15px;*/
 	max-height: 0;
 	overflow: hidden;
-	border: 1px solid #4f3616;
+	border: 1px solid var(--brown-color);
 }
 
 
@@ -116,7 +116,7 @@
 .area-block {
 	display: inline-block;
 	width: 100%;
-	border-bottom: 1px solid #4f3616;
+	border-bottom: 1px solid var(--brown-color);
 }
 .area-block:last-child {
 	border-bottom: none;
